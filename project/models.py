@@ -9,6 +9,9 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(1000))
     messages = db.relationship('Message', backref='user', lazy=True)
 
+    def __repr__(self):
+        return '<User %r>' % self.email
+
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
